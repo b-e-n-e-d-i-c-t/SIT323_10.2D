@@ -1,12 +1,12 @@
 steps:
 # Build Docker Image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/nichollsb/cicd:$COMMIT_SHA', '.']
+  args: ['build', '-t', 'gcr.io/${PROJECT_ID}/cicd:$COMMIT_SHA', '.']
 
 
 # Docker Push
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/nichollsb/cicd:$COMMIT_SHA']
+  args: ['push', 'gcr.io/${PROJECT_ID}/cicd:$COMMIT_SHA']
 
 
 - name: 'gcr.io/cloud-builders/kubectl'
